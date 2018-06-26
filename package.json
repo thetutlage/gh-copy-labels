@@ -12,6 +12,7 @@
     "lint": "tslint --project tsconfig.json",
     "clean": "del build",
     "compile": "npm run lint && npm run clean && tsc",
+    "prepublishOnly": "npm run build",
     "build": "npm run compile"
   },
   "keywords": [
