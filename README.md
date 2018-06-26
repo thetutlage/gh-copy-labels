@@ -13,11 +13,11 @@
 3. Caches organizations and repos data to avoid hitting Github API every time.
 
 ## Demo's
-![](https://res.cloudinary.com/adonisjs/image/upload/v1530034643/labels-copied_lme74k.gif)
+<img src="https://res.cloudinary.com/adonisjs/image/upload/v1530034643/labels-copied_lme74k.gif" width="650px">
 
 If labels already exists, they will be skipped.
 
-![](https://res.cloudinary.com/adonisjs/image/upload/v1530034638/labels-exists_rgs76y.gif)
+<img src="https://res.cloudinary.com/adonisjs/image/upload/v1530034638/labels-exists_rgs76y.gif" width="650px">
 
 ## Installation
 Install it from npm as a global dependency, so that you can run the command from anywhere.
