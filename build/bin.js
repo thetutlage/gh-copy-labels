@@ -23,14 +23,7 @@ function largestLabelName(labels) {
 }
 function getSpaces(labelName, minMidth) {
     const diff = minMidth - labelName.length;
-    const spaces = (diff === 0 ? new Array(4) : new Array(diff + 4)).join(' ');
-    if (labelName.endsWith('Review Needed')) {
-        return spaces + ' ';
-    }
-    if (labelName.endsWith('Invalid')) {
-        return spaces + '     ';
-    }
-    return spaces;
+    return (diff === 0 ? new Array(4) : new Array(diff + 4)).join(' ');
 }
 function setup(token, reAuth) {
     return __awaiter(this, void 0, void 0, function* () {
