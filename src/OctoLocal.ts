@@ -1,7 +1,7 @@
 'use strict'
 
 /*
-* gh-sync-labels
+* gh-copy-labels
 *
 * (c) Harminder Virk <virk@adonisjs.com>
 *
@@ -10,38 +10,7 @@
 */
 
 import fs from 'fs-extra'
-import _ from 'lodash'
-
-type Org = {
-  login: string,
-  id: number,
-  avatar_url: string,
-}
-
-type Repo = {
-  id: number,
-  name: string,
-  full_name: string,
-  private: boolean,
-  fork: boolean,
-  archived: boolean,
-}
-
-type Label = {
-  id: number,
-  color: string,
-  name: string,
-}
-
-type UserFile = {
-  orgs?: Org[],
-  repos?: {
-    [org: string]: Repo[],
-  },
-  labels?: {
-    [repo: string]: Label[],
-  },
-}
+import { Repo, Org, Label, UserFile } from './Contracts'
 
 class OctoLocal {
   constructor (private fileName: string) {
@@ -118,7 +87,7 @@ class OctoLocal {
     fileContents.labels = fileContents.labels || {}
 
     fileContents.labels[repoName] = labels.map((repo) => {
-      return _.pick(repo, ['name', 'color', 'id'])
+      return this._pickValues(repo, ['name', 'color', 'id'])
     })
 
     await fs.outputJSON(this.fileName, fileContents)

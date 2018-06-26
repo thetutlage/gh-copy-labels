@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /*
-* gh-sync-labels
+* gh-copy-labels
 *
 * (c) Harminder Virk <virk@adonisjs.com>
 *
@@ -20,7 +20,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 * file that was distributed with this source code.
 */
 const fs_extra_1 = __importDefault(require("fs-extra"));
-const lodash_1 = __importDefault(require("lodash"));
 class OctoLocal {
     constructor(fileName) {
         this.fileName = fileName;
@@ -94,7 +93,7 @@ class OctoLocal {
             const fileContents = yield this._getFileContents();
             fileContents.labels = fileContents.labels || {};
             fileContents.labels[repoName] = labels.map((repo) => {
-                return lodash_1.default.pick(repo, ['name', 'color', 'id']);
+                return this._pickValues(repo, ['name', 'color', 'id']);
             });
             yield fs_extra_1.default.outputJSON(this.fileName, fileContents);
             return fileContents.labels[repoName];
@@ -107,7 +106,8 @@ class OctoLocal {
     _getFileContents() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return fs_extra_1.default.readJSON(this.fileName);
+                const contents = yield fs_extra_1.default.readJSON(this.fileName);
+                return contents;
             }
             catch (error) {
                 return {};
@@ -118,7 +118,10 @@ class OctoLocal {
      * Pick value for given keys from the source object.
      */
     _pickValues(source, keys) {
-        return keys.reduce((r, k) => r[k] = source[k], {});
+        return keys.reduce((r, k) => {
+            r[k] = source[k];
+            return r;
+        }, {});
     }
 }
 exports.default = OctoLocal;

@@ -1,21 +1,4 @@
-declare type Org = {
-    login: string;
-    id: number;
-    avatar_url: string;
-};
-declare type Repo = {
-    id: number;
-    name: string;
-    full_name: string;
-    private: boolean;
-    fork: boolean;
-    archived: boolean;
-};
-declare type Label = {
-    id: number;
-    color: string;
-    name: string;
-};
+import { Repo, Org, Label } from './Contracts';
 declare class OctoLocal {
     private fileName;
     constructor(fileName: string);

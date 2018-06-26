@@ -8,3 +8,4 @@ coverage
 *.sublime-workspace
 *.log
 yarn.lock
+cache
