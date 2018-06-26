@@ -1,0 +1,52 @@
+{
+  "name": "gh-copy-labels",
+  "version": "1.0.0",
+  "description": "Copy labels across multiple repos on Github",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "japa",
+    "mrm": "mrm --dir=node_modules/@adonisjs/mrm-preset",
+    "commit": "git-cz",
+    "lint": "tslint --project tsconfig.json",
+    "clean": "del build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "build": "npm run clean && webpack"
+  },
+  "keywords": [
+    "gh",
+    "gh-labels",
+    "github-labels"
+  ],
+  "author": "virk",
+  "license": "MIT",
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.2",
+    "fs-extra": "^6.0.1",
+    "lodash": "^4.17.10",
+    "ow": "^0.6.0"
+  },
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^1.0.1",
+    "@types/node": "^10.3.6",
+    "add-module-exports-webpack-plugin": "^0.1.0",
+    "awesome-typescript-loader": "^5.2.0",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "del-cli": "^1.1.0",
+    "japa": "^1.0.6",
+    "japa-cli": "^1.0.1",
+    "mrm": "^1.1.1",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
+    "tslint-eslint-rules": "^5.3.1",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
