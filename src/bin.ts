@@ -43,8 +43,8 @@ async function handle (octo: Octo, force: boolean): Promise<void> {
 
   const { baseRepo, destRepos } = await inquirer.prompt([
     {
-      name: 'org',
-      message: 'Select github organisation',
+      name: 'baseOrg',
+      message: 'Select base github organisation',
       validate (input) {
         return !!input
       },
@@ -57,18 +57,27 @@ async function handle (octo: Octo, force: boolean): Promise<void> {
       suffix: chalk.dim(' Used for copying labels'),
       type: 'list',
       async choices (answers) {
-        const repos = await octo.listRepos(answers.org, force)
+        const repos = await octo.listRepos(answers.baseOrg, force)
         return repos.map((repo) => {
           return { name: repo.name, value: repo.full_name }
         })
       },
     },
     {
+      name: 'destOrg',
+      message: 'Select organisation in which to copy labels',
+      validate (input) {
+        return !!input
+      },
+      type: 'list',
+      choices: orgs.map((org) => org.login),
+    },
+    {
       name: 'destRepos',
       message: 'Select repos in which to copy labels',
       type: 'checkbox',
       async choices (answers) {
-        const repos = await octo.listRepos(answers.org)
+        const repos = await octo.listRepos(answers.destOrg, force)
         return repos.map((repo) => {
           return { name: repo.name, value: repo.full_name }
         })

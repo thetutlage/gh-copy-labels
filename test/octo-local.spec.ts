@@ -39,13 +39,12 @@ test.group('Octo Local', (group) => {
       {
         id: 1,
         login: 'adonisjs',
-        avatar_url: 'foo.jpg',
       },
     ])
 
     const userFile = await fs.readJSON(filePath)
     assert.deepEqual(userFile, {
-      orgs: [{ id: 1, login: 'adonisjs', avatar_url: 'foo.jpg' }],
+      orgs: [{ id: 1, login: 'adonisjs' }],
     })
   })
 
@@ -60,7 +59,11 @@ test.group('Octo Local', (group) => {
       adonisjs: [
         {
           name: 'adonis-framework',
+          full_name: 'adonis-framework',
           id: 1,
+          private: false,
+          fork: false,
+          archived: false,
         },
       ],
     }
@@ -116,6 +119,7 @@ test.group('Octo Local', (group) => {
         {
           name: 'PR Needed',
           color: '#fff',
+          id: 1,
         },
       ],
     }

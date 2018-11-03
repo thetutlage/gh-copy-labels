@@ -1,7 +1,6 @@
 export type Org = {
   login: string,
   id: number,
-  avatar_url: string,
 }
 
 export type Repo = {
