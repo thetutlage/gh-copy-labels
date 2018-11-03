@@ -1,7 +1,10 @@
 {
   "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
   "compilerOptions": {
-  	"lib": ["es2015", "es2016"],
+    "lib": [
+      "es2015",
+      "es2016"
+    ],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   }

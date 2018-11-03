@@ -3,4 +3,10 @@ cache:
   directories:
     - node_modules
 node_js:
-  - 9
+  - node
+  - 8.12.0
+sudo: false
+install:
+  - npm install
+after_script:
+  - npm run coverage
