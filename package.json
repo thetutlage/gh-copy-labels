@@ -1,6 +1,6 @@
 {
   "name": "gh-copy-labels",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Copy labels across multiple repos on Github",
   "main": "build/index.js",
   "files": [
