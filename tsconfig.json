@@ -1,6 +1,11 @@
 {
   "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
+  "include": [
+    "src/**/*"
+  ],
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "build",
     "lib": [
       "es2015",
       "es2016"
