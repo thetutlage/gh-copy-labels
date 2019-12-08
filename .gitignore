@@ -10,6 +10,7 @@ coverage
 yarn.lock
 cache
 build
+!build/bin.js
 dist
 shrinkwrap.yaml
 package-lock.json
